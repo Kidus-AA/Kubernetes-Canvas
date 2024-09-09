@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+  labels:
+    app: kubernetes-canvas
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kubernetes-canvs
+  template:
+    metadata:
+      labels:
+        app: kubernetes-canvas
+    spec:
+      containers:
+      - name: kubernetes-canvas
+        image: kubernetes-canvas
+        ports:
+        - containerPort: 3001
